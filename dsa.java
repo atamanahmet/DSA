@@ -1,32 +1,220 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Stack;
 
-public class dsa {
+class MinStack {
+    private Stack<Integer> s;
+    private Stack<Integer> minStack;
 
-    public static void main(String[] args) {
-        int[] nums = { 3, 3 };
-        int target = 6;
-        Map<Integer, Integer> table = new HashMap<>();
-        System.out.println(Arrays.toString(twoSum(nums, target, table)));
+    public MinStack() {
+        this.s = new Stack<>();
+        this.minStack = new Stack<>();
     }
 
-    public static int[] twoSum(int[] nums, int target, Map<Integer, Integer> table) {
-        for (int i = 0; i < nums.length; i++) {
-
-            int otherNumber = target - nums[i];
-
-            if (table.containsKey(otherNumber)) {
-                return new int[] { i, table.get(otherNumber) };
-            }
-
-            table.put(nums[i], i);
-
+    public void push(int val) {
+        s.push(val);
+        if (minStack.isEmpty() || val <= minStack.peek()) {
+            minStack.push(val);
+        } else {
+            minStack.push(minStack.peek());
         }
-        return null;
+    }
 
+    public void pop() {
+        s.pop();
+        minStack.pop();
+    }
+
+    public int top() {
+        return s.peek();
+    }
+
+    public int getMin() {
+        return minStack.peek();
     }
 }
+
+// import java.util.Arrays;
+// import java.util.Stack;
+
+// class MinStack {
+// public static void main(String[] args) {
+// MinStack minStack = new MinStack();
+// minStack.push(-2);
+// minStack.push(0);
+// minStack.push(-3);
+// minStack.pop();
+// minStack.top();
+// minStack.push(0);
+// minStack.push(3);
+// minStack.push(5);
+
+// minStack.getMin();
+// minStack.pop();
+
+// minStack.top();
+
+// System.out.println(minStack.getMin());
+
+// }
+
+// private Object[] s;
+// private Stack<Integer> minStack;
+// private int pointer;
+// private int min;
+// private int size = 5;
+
+// public MinStack() {
+// this.s = new Object[size];
+// System.out.println(s.length);
+// this.pointer = 0;
+// this.min = Integer.MAX_VALUE;
+// this.minStack = new Stack<>();
+// }
+
+// public Object[] getS() {
+// return this.s;
+// }
+
+// public int getpo() {
+// return this.pointer;
+// }
+
+// public void push(int val) {
+// if (this.pointer == this.size) {
+// this.size = this.size * 2;
+// Object[] buffer = s.clone();
+// s = new Object[this.size];
+// for (int i = 0; i < buffer.length; i++) {
+// s[i] = buffer[i];
+// }
+// }
+// s[pointer++] = val;
+
+// if (val < this.min) {
+// this.min = val;
+// }
+
+// minStack.push(min);
+// }
+
+// public void pop() {
+// s[--pointer] = null;
+// minStack.pop();
+// System.out.println("minStack: " + minStack);
+// }
+
+// public int top() {
+// return (int) s[pointer - 1];
+// }
+
+// public int getMin() {
+// return this.minStack.peek();
+// }
+// }
+
+// import java.util.Stack;
+
+// class Solution {
+// public static void main(String[] args) {
+// System.out.println(isValid(new String("([{}])")));
+// }
+
+// public static boolean isValid(String s) {
+// if((s.length()&1)==1) return false;
+// char[] a = s.toCharArray();
+// Stack<Character> st = new Stack<>();
+// for (char c : a) {
+// if (c == '(')
+// st.add(')');
+// else if (c == '[')
+// st.add(']');
+// else if (c == '{')
+// st.add('}');
+// else if (!st.isEmpty() && st.peek() == c) {
+// st.pop();
+// } else {
+// return false;
+// }
+// }
+// if (st.isEmpty()) {
+// return true;
+// }
+// return false;
+// }
+// }
+
+// import java.util.Arrays;
+// import java.util.HashMap;
+// import java.util.Map;
+// import java.util.Stack;
+
+// public class dsa {
+
+// public static void main(String[] args) {
+// System.out.println(
+// isParValid(new String("([}}])")));
+// }
+
+// public static boolean isParValid(String s) {
+// int n = s.length();
+// if (n % 2 != 0)
+// return false;
+
+// HashMap<Character, Character> map = new HashMap<>();
+
+// map.put(')', '(');
+// map.put(']', '[');
+// map.put('}', '{');
+
+// char[] a = s.toCharArray(); // 6
+// Stack<Character> stack = new Stack<>();
+
+// for (int i = 0; i < a.length; i++) {
+// if (map.containsKey(a[i]) && !stack.isEmpty() && stack.peek() ==
+// map.get(a[i])) {
+// stack.pop();
+// } else if (map.containsValue(a[i])) {
+// stack.add(a[i]);
+// } else {
+// return false;
+// }
+// }
+
+// if (stack.isEmpty()) {
+// return true;
+// }
+// return false;
+// }
+// }
+// import java.util.Arrays;
+// import java.util.HashMap;
+// import java.util.Map;
+
+// public class dsa {
+
+// public static void main(String[] args) {
+// int[] nums = { 3, 3 };
+// int target = 6;
+// Map<Integer, Integer> table = new HashMap<>();
+// System.out.println(Arrays.toString(twoSum(nums, target, table)));
+// }
+
+// public static int[] twoSum(int[] nums, int target, Map<Integer, Integer>
+// table) {
+// for (int i = 0; i < nums.length; i++) {
+
+// int otherNumber = target - nums[i];
+
+// if (table.containsKey(otherNumber)) {
+// return new int[] { i, table.get(otherNumber) };
+// }
+
+// table.put(nums[i], i);
+
+// }
+// return null;
+
+// }
+// }
 
 // Brute force O(n^2)
 
