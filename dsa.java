@@ -1,60 +1,60 @@
-import java.util.Stack;
-
-class MinStack {
-    private Stack<Integer> s;
-    private Stack<Integer> minStack;
-
-    public MinStack() {
-        this.s = new Stack<>();
-        this.minStack = new Stack<>();
-    }
-
-    public void push(int val) {
-        s.push(val);
-        if (minStack.isEmpty() || val <= minStack.peek()) {
-            minStack.push(val);
-        } else {
-            minStack.push(minStack.peek());
-        }
-    }
-
-    public void pop() {
-        s.pop();
-        minStack.pop();
-    }
-
-    public int top() {
-        return s.peek();
-    }
-
-    public int getMin() {
-        return minStack.peek();
-    }
-}
-
-// import java.util.Arrays;
 // import java.util.Stack;
 
 // class MinStack {
-// public static void main(String[] args) {
-// MinStack minStack = new MinStack();
-// minStack.push(-2);
-// minStack.push(0);
-// minStack.push(-3);
-// minStack.pop();
-// minStack.top();
-// minStack.push(0);
-// minStack.push(3);
-// minStack.push(5);
+//     private Stack<Integer> s;
+//     private Stack<Integer> minStack;
 
-// minStack.getMin();
-// minStack.pop();
+//     public MinStack() {
+//         this.s = new Stack<>();
+//         this.minStack = new Stack<>();
+//     }
 
-// minStack.top();
+//     public void push(int val) {
+//         s.push(val);
+//         if (minStack.isEmpty() || val <= minStack.peek()) {
+//             minStack.push(val);
+//         } else {
+//             minStack.push(minStack.peek());
+//         }
+//     }
 
-// System.out.println(minStack.getMin());
+//     public void pop() {
+//         s.pop();
+//         minStack.pop();
+//     }
 
+//     public int top() {
+//         return s.peek();
+//     }
+
+//     public int getMin() {
+//         return minStack.peek();
+//     }
 // }
+
+import java.util.Arrays;
+import java.util.Stack;
+
+class MinStack {
+public static void main(String[] args) {
+MinStack minStack = new MinStack();
+minStack.push(-2);
+minStack.push(0);
+minStack.push(-3);
+minStack.pop();
+minStack.top();
+minStack.push(0);
+minStack.push(3);
+minStack.push(5);
+
+minStack.getMin();
+minStack.pop();
+
+minStack.top();
+
+System.out.println(minStack.getMin());
+
+}
 
 // private Object[] s;
 // private Stack<Integer> minStack;
