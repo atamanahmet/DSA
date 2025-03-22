@@ -178,3 +178,134 @@ class Main {
 
     }
 }
+
+///// singly linkedlist
+///
+// class MyLinkedList {
+// class Node {
+// int val;
+// Node next;
+
+// public Node(int x) {
+// this.val = x;
+// this.next = null;
+// }
+// }
+// Node head;
+// Node tail;
+// int size;
+
+// public MyLinkedList() {
+// this.head = null;
+// this.tail = null;
+// this.size = 0;
+// }
+
+// public int get(int index) {
+// print();
+// if(index<0 ||this.size==0|| index>=this.size) return -1;
+// Node current = this.head;
+// for(int i = 0; i<this.size; i++){
+// if(current==null) return -1;
+// else if (index==i) return current.val;
+// else current= current.next;
+// }
+// return -1;
+// }
+
+// public void addAtHead(int val) {
+// print();
+// Node newNode = new Node(val);
+// newNode.next = this.head;
+// this.head = newNode;
+// if (this.tail == null) {
+// this.tail = newNode;
+// }
+// this.size++;
+// }
+
+// public void addAtTail(int val) {
+// print();
+// if(this.size==0){
+// addAtHead(val);
+// return;
+// }
+// else{
+// Node newNode = new Node(val);
+// Node oneBefore = this.tail;
+// oneBefore.next = newNode;
+// this.tail= newNode;
+// size++;
+// }
+
+// }
+
+// public void addAtIndex(int index, int val) {//1-2-3-X-4-5->null
+// print();
+// if(index==0) addAtHead(val);
+// else if(index>size||index<0) return;
+// else if(index==size) addAtTail(val);
+// else{
+// Node current = this.head;
+// for(int i = 0; i<this.size; i++){
+// // if(current==null) return;
+// if(i==index-1){
+// Node newNode = new Node(val);
+// Node before = current;
+// Node after = current.next;
+// before.next = newNode;
+// newNode.next = after;
+// size++;
+// return;
+// }
+// else{
+// current = current.next;
+// }
+// }
+// }
+// }
+
+// public void deleteAtIndex(int index) {
+// print();
+// if(index<0 || this.size==0 || index >= size){
+// return;
+// }
+// else if (index == 0) {
+// this.head = this.head.next;
+// this.size--;
+// return;
+// }
+// else{
+// Node current = this.head;
+// for(int i = 0; i<this.size; i++){
+// if(current.next.next==null){
+// current.next=null;
+// this.size--;
+// return;
+// }
+// else if(i==index-1){ //...3->X->4->5->null x to delete curr: 3
+// current.next=current.next.next;
+// return;
+// }
+// else{
+// current = current.next;
+// }
+// }
+// }
+// }
+// public void print(){
+// int c = 0;
+// Node curr = this.head;
+// String str = "";
+// while (c < this.size) {
+// if (curr == null) {
+// break;
+// }
+// str += curr.val + "->";
+// c++;
+// curr = curr.next;
+// }
+// System.out.println(str);
+// }
+
+// }
