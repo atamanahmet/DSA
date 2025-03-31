@@ -1,7 +1,7 @@
 
 class MyLinkedList {
     class Node {
-        Object val;
+        Object val; //for preventing box-unbox
         Node next;
         Node prev;
 
