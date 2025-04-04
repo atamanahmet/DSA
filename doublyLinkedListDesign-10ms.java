@@ -1,7 +1,7 @@
 
 class MyLinkedList {
     class Node {
-        Object val;
+        Object val; //for preventing box-unbox
         Node next;
         Node prev;
 
@@ -51,7 +51,6 @@ class MyLinkedList {
             this.tail = newNode;
         }
         size++;
-
     }
 
     public void addAtTail(int val) {
@@ -73,7 +72,6 @@ class MyLinkedList {
                 }
             }
         }
-
     }
 
     public void addAtIndex(int index, int val) {
@@ -101,7 +99,6 @@ class MyLinkedList {
                 }
             }
         }
-
     }
 
     public void deleteAtIndex(int index) {
