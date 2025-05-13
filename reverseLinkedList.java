@@ -1,14 +1,21 @@
 public class reverseLinkedList {
-    /**
-     * Definition for singly-linked list.
-     * public class ListNode {
-     * int val;
-     * ListNode next;
-     * ListNode() {}
-     * ListNode(int val) { this.val = val; }
-     * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-     * }
-     */
+
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
 
     class Solution { // recursive
         public ListNode reverseList(ListNode head) {
@@ -21,7 +28,7 @@ public class reverseLinkedList {
             if (head == null)
                 return newHead;
             ListNode next = head.next;
-            head.next = newHead;// first step newHead=null newTail.next=newHead/(null)
+            head.next = newHead;
             newHead = head;
             head = next;
             return reverse(head, newHead);
