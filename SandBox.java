@@ -8,7 +8,8 @@ public class SandBox {
         // smaller = num;
         // }
         // }
-
+        String s = new String("asd");
+        s.length();
         for (int i : nums) {
 
         }
