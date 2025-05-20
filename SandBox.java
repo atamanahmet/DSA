@@ -10,9 +10,8 @@ public class SandBox {
         // }
         String s = new String("asd");
         s.length();
-        for (int i : nums) {
-
-        }
+        int[] nums1 = new int[5];
+        System.out.println(nums1.length);
     }
 
 }
