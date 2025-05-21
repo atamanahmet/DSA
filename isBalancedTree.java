@@ -1,5 +1,3 @@
-import javax.swing.tree.TreeNode;
-
 public class isBalancedTree {
     public class TreeNode {
         int val;
